@@ -11,7 +11,11 @@ export function CatalogPage(props: CatalogPageProps) {
 
   return (
     <section className="catalog-page">
-      <p>CatalogPage works!</p>
+      <div className="products-grid">
+        item 1 <br />
+        item 2 <br />
+        item 3
+      </div>
       <h1>Clicks count: {props.clicksCount}</h1>
       <button onClick={handleButtonCLick}>CatalogPage Press me</button>
     </section>

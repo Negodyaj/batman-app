@@ -1,14 +1,20 @@
-import { useState } from "react";
 import "./Header.scss";
 import logo from "./logo.svg";
 
-export function Header() {
-  const [isOpened, setIsOpened] = useState(false);
+type HeaderProps = {
+  isClosed: boolean;
+  buttonClickHandler: () => void;
+};
 
-  const navClass = isOpened ? "opened" : "";
+export function Header(props: HeaderProps) {
+  const isClosed = props.isClosed;
+  const navClass = !isClosed ? "opened" : "";
 
-  function handleBurgerButtonClick() {
-    setIsOpened(!isOpened);
+  function handleBurgerButtonClick(
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
+    event.stopPropagation();
+    props.buttonClickHandler();
   }
 
   return (

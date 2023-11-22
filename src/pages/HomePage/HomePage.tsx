@@ -2,7 +2,11 @@ import { MovieCard } from "../../components/MovieCard/MovieCard";
 import { Movie } from "../../models/movie";
 import "./HomePage.scss";
 
-export function HomePage() {
+type HomePageProps = {
+  handler: () => void;
+};
+
+export function HomePage(props: HomePageProps) {
   const movies: Movie[] = [
     {
       name: "Batman Begins",
@@ -51,23 +55,13 @@ export function HomePage() {
     },
   ];
 
-  function handleButtonCLick() {
-    alert("clicked");
-  }
-
-  function handleMouseEnter() {
-    console.log("enter");
-  }
-
   return (
     <section className="home-page">
       <p>HomePage works!</p>
       {movies.map((movie, index) => (
         <MovieCard key={`movie-${index}`} movie={movie} secretNumber={index} />
       ))}
-      <button onClick={handleButtonCLick} onMouseEnter={handleMouseEnter}>
-        HomePage Press me
-      </button>
+      <button onClick={props.handler}>Clicker</button>
     </section>
   );
 }

@@ -1,6 +1,10 @@
 import "./CatalogPage.scss";
 
-export function CatalogPage() {
+type CatalogPageProps = {
+  clicksCount: number;
+};
+
+export function CatalogPage(props: CatalogPageProps) {
   function handleButtonCLick() {
     alert("CatalogPage clicked");
   }
@@ -8,6 +12,7 @@ export function CatalogPage() {
   return (
     <section className="catalog-page">
       <p>CatalogPage works!</p>
+      <h1>Clicks count: {props.clicksCount}</h1>
       <button onClick={handleButtonCLick}>CatalogPage Press me</button>
     </section>
   );
